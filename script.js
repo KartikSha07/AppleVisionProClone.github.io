@@ -1,31 +1,25 @@
 function loco(){
     gsap.registerPlugin(ScrollTrigger);
 
-// Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
 
 const locoScroll = new LocomotiveScroll({
   el: document.querySelector(".main"),
   smooth: true
 });
-// each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
 locoScroll.on("scroll", ScrollTrigger.update);
 
-// tell ScrollTrigger to use these proxy methods for the ".main" element since Locomotive Scroll is hijacking things
 ScrollTrigger.scrollerProxy(".main", {
   scrollTop(value) {
     return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
-  }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+  }, 
   getBoundingClientRect() {
     return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
   },
-  // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
   pinType: document.querySelector(".main").style.transform ? "transform" : "fixed"
 });
 
-// each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
 ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 
-// after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
 ScrollTrigger.refresh();
 
 }
@@ -64,7 +58,7 @@ gsap.to(".page-bottom",{
         scroller:`.main`,
         scrub:.5,
     },
-    opacity:0.12
+    opacity:0
 })
 
 
@@ -428,31 +422,31 @@ render();
 
 function files(index) {
 var data = `
-.//Apple vision canvas images/Vision00001.png
-.//Apple vision canvas images/Vision00002.png
-.//Apple vision canvas images/Vision00003.png
-.//Apple vision canvas images/Vision00004.png
-.//Apple vision canvas images/Vision00005.png
-.//Apple vision canvas images/Vision00006.png
-.//Apple vision canvas images/Vision00007.png
-.//Apple vision canvas images/Vision00008.png
-.//Apple vision canvas images/Vision00009.png
-.//Apple vision canvas images/Vision00010.png
-.//Apple vision canvas images/Vision00011.png
-.//Apple vision canvas images/Vision00012.png
-.//Apple vision canvas images/Vision00013.png
-.//Apple vision canvas images/Vision00014.png
-.//Apple vision canvas images/Vision00015.png
-.//Apple vision canvas images/Vision00016.png
-.//Apple vision canvas images/Vision00017.png
-.//Apple vision canvas images/Vision00018.png
-.//Apple vision canvas images/Vision00019.png
-.//Apple vision canvas images/Vision00020.png
-.//Apple vision canvas images/Vision00021.png
-.//Apple vision canvas images/Vision00022.png
-.//Apple vision canvas images/Vision00023.png
-.//Apple vision canvas images/Vision00024.png
-.//Apple vision canvas images/Vision00025.png
+.//VisionImages/Vision00001.png
+.//VisionImages/Vision00002.png
+.//VisionImages/Vision00003.png
+.//VisionImages/Vision00004.png
+.//VisionImages/Vision00005.png
+.//VisionImages/Vision00006.png
+.//VisionImages/Vision00007.png
+.//VisionImages/Vision00008.png
+.//VisionImages/Vision00009.png
+.//VisionImages/Vision00010.png
+.//VisionImages/Vision00011.png
+.//VisionImages/Vision00012.png
+.//VisionImages/Vision00013.png
+.//VisionImages/Vision00014.png
+.//VisionImages/Vision00015.png
+.//VisionImages/Vision00016.png
+.//VisionImages/Vision00017.png
+.//VisionImages/Vision00018.png
+.//VisionImages/Vision00019.png
+.//VisionImages/Vision00020.png
+.//VisionImages/Vision00021.png
+.//VisionImages/Vision00022.png
+.//VisionImages/Vision00023.png
+.//VisionImages/Vision00024.png
+.//VisionImages/Vision00025.png
 `;
 return data.split("\n")[index];
 }

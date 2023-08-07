@@ -13,6 +13,7 @@ body {
 .main {
   position: relative;
   overflow: hidden;
+  background-color: #000;
 }
 .page {
   position: relative;
@@ -32,19 +33,21 @@ body {
   left: 50%;
   transform: translateX(-50%);
   color: #fff;
+  background-color: #000;
 }
 .page > nav > button {
   padding: 7px 20px;
   border-radius: 50px;
   border: none;
   background-color: #fff;
+  cursor: pointer;
 }
 .page > nav > h3 {
   font-weight: 400;
 }
 .page > video {
   height: 100%;
-  width: 50%;
+  width: 80%;
   object-fit: cover;
   position: absolute;
   left: 50%;
@@ -63,10 +66,15 @@ body {
   flex-direction: column;
 }
 .page-bottom > h3 {
-  opacity: 0.85;
-  font-size: 28px;
+  opacity: 0.75;
+  font-size: 26px;
   color: white;
+  font-weight: 400;
   margin-bottom: 1vw;
+}
+.page-bottom > img {
+  opacity: 1;
+  
 }
 .page1 {
   position: relative;
@@ -166,6 +174,7 @@ body {
   background-color: #fff;
   border-radius: 50px;
   font-size: 1.4vw;
+  cursor: pointer;
 }
 
 .page4 {
@@ -193,6 +202,7 @@ body {
   position: relative;
   height: 80vh;
   width: 100vw;
+  background-color: #fff;
 }
 .left5 {
   position: relative;
@@ -229,6 +239,7 @@ body {
   border-radius: 50px;
   font-size: 1.3vw;
   margin-top: 1.5vw;
+  cursor: pointer;
 }
 .page6 {
   display: flex;
@@ -438,6 +449,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #fff;
   flex-direction: column;
 }
 .page16 > h2 {
@@ -465,6 +477,7 @@ body {
   color: #fff;
   font-weight: 500;
   border: none;
+  cursor: pointer;
 }
 .page17 {
   position: relative;
